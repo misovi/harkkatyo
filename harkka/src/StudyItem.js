@@ -4,39 +4,110 @@ class StudyItem
   {
     this.source = sourceValues;
     this.destination = destinationValues;
+    this.examples = examples
+    this.anecdote ) anecdote
     this.correct = 0;
     this.level = lvl;
     this.classification = classification;
+    /*Operation codes:
+    -1: No Operation
+    0: user input was correct, make necessary modifications
+    1: user input was incorrect, make necessary modifications*/
+    this.preparedOperationCode = -1;
     //number of correct answers required for item to move up a level
     //for grammar points this is set to 1, and vocab 2
     this.requiredCorrAns = requiredCorrAns;
-    sourcePassed = false;
+    /*queryMode values:
+    -1: not set, queries can be made on both source and destination
+    0: queries from source language only
+    1: queries from destination language only*/
+    this.queryMode = -1;
+    this.preparedQueryMode = -1
   }
 
-  /*UserInput is an array created from comma separated list inputted by
-  user. For now, order of answers is irrelevant, as long as all correct
-  answers are present*/
-  isCorrect(userInput)
+  get queryMode()
+  {
+    return this.queryMode;
+  }
+
+  printableData()
+  {
+    let dataPacket =
+    {
+      source: this.sourceValues,
+      destination: this.destinationValues,
+      examples: this.examples,
+      anecdote: this.anecdote
+    };
+    return dataPacket;
+  }
+
+  /*answerMode = 0: the answers are in source language
+  answerMode = 1: answers are in destination language.
+  In case of grammar points answerMode is always 0*/
+  checkAnswer(answers, answerMode)
   {
     challengeArray = [];
-    if(sourcePassed)
+    if(answerMode===0)
     {
-      challengeArray = this.destination;
+      challengeArray = this.sourceValues;
+      this.preparedQueryMode = 1;
     }
     else
     {
-      challengeArray = this.source;
+      challengeArray = this.destinationValues;
+      preparedQueryMode = 0;
     }
-    for(attempt in userInput)
+
+    for(correctAnswer in challengeArray)
     {
-      for(answer in challengeArray)
+      if(answers.includes(correctAnswer) == false)
       {
-        if(attempt != answer)
-        {
-          return false;
-        }
+        this.preparedOperationCode = 1;
+        return false;
       }
     }
-    return true;
+    this.preparedOperationCode = 0;
+    return true
   }
+
+  //executes the prepared operation and returns wether
+  //the instance of the object should be removed from
+  //the review queue as well as if should be moved to
+  //correct answers listing or wrong answers listing
+  executeOperation()
+  {
+    let returnVals =
+    {
+      popMe: false,
+      moveTo: ""
+    }
+    if(this.preparedOperationCode === 0)
+    {
+      //if user inputted right answers and accepted it
+      this.correct = this.correct + 1
+      if this.correct == this.requiredCorrAns
+      {
+        this.level = this.level+1;
+        returnVals.popMe = true;
+        returnVals.moveTo = "correct";
+      }
+    }
+    else if (this.preparedOperationCode === 1)
+    {
+      //if user inputted the wrong answer and accepted it
+      //// TODO: create formula for decreasing level nicely
+      //for now, wrong answer decreases level by 4
+      this.level = this.level-4
+      if(this.level<0)
+      {
+        this.level=0;
+        returnVals.moveTo = "incorrect"
+      }
+    }
+  }
+
+
+
+
 }
