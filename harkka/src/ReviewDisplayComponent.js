@@ -32,17 +32,24 @@ class ReviewDisplayComponent extends React.Component
     {
       display.push(<Col>{this.state.displayData.display[i]}</Col>);
     }
-    return(
+    return(<div>
       <Container>
           <Row>{display}</Row>
       </Container>
       <Container>
           <Row>
               <Col>
-                  <Form></Form>
+                  <Form inline>
+                  <FormControl
+                    type="text"
+                    placeholder="Username"
+                    className="mr-sm-2"
+                    value={this.state.usr}
+                    onChange={e => this.setState({ input: e.target.value })}/>
+                  </Form>
               </Col>
           </Row>
-      </Container
+      </Container></div>
     );
   }
 }
