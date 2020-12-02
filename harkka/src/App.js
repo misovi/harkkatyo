@@ -1,13 +1,26 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import StudyItemDisplayComponent from './StudyItemDisplayComponent.js';
+import ReviewDisplayComponent from './ReviewDisplayComponent.js';
+import NavBarComponent from './NavBarComponent.js'
 
 function App() {
+
+  let dataPacket =
+  {
+    display: ["some", "things", "to display"],
+    hidden:
+    {
+      answer: ["hidden", "answers"],
+      anecdote: "hidden description",
+      examples: ["some", "examples"]
+    },
+    displayMode: "neutral"
+  };
   return (
 
     <div className="App">
-    <StudyItemDisplayComponent />
+    <ReviewDisplayComponent dataPacket={dataPacket} />
     </div>
   );
 }
