@@ -22,6 +22,8 @@ class ReviewDisplayComponent extends React.Component
       displayData: props.dataPacket,
       input: ""
     };
+    this.callback = props.callback;
+    console.log(this.state.displayData);
   }
 
   render()
@@ -32,24 +34,34 @@ class ReviewDisplayComponent extends React.Component
     {
       display.push(<Col>{this.state.displayData.display[i]}</Col>);
     }
+    if(this.state.displayData.displayMode != "neutral")
+    {
+      hidden.push(<><Row><h1>Description:</h1></Row><Row>{this.state.displayData.hidden.anecdote}</Row></>);
+      hidden.push(<Row><h1>Examples:</h1></Row>);
+      for(let i = 0; i<this.state.displayData.hidden.examples.length;i++)
+      {
+        hidden.push(<Row>{this.state.displayData.hidden.examples[i]}</Row>)
+      }
+    }
     return(<div>
       <Container>
           <Row>{display}</Row>
       </Container>
       <Container>
           <Row>
-              <Col>
                   <Form inline>
                   <FormControl
                     type="text"
                     placeholder="Username"
                     className="mr-sm-2"
                     value={this.state.usr}
-                    onChange={e => this.setState({ input: e.target.value })}/>
+                    onChange={e => this.setState({ input: e.target.value })}
+                    onSubmit={e => {e.preventDefault(); this.callback(this.state.input)}}/>
                   </Form>
-              </Col>
           </Row>
-      </Container></div>
+
+      </Container>
+      <Container>{hidden}</Container></div>
     );
   }
 }

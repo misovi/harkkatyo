@@ -27,6 +27,16 @@ class ReviewManager extends React.component
     this.userInput = "";
   }
 
+  childCallBack(input)
+  {
+    let answers = input
+    for(answer in answers)
+    {
+      answer = answer.trim();
+    }
+    this.currentItem.checkAnswer(answers, this.answerMode);
+  }
+
   drawItem()
   {
     let randomIndex = Math.floor(Math.random() * this.rq.length);

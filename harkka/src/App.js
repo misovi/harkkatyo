@@ -6,6 +6,11 @@ import NavBarComponent from './NavBarComponent.js'
 
 function App() {
 
+  function cb(input)
+  {
+    console.log(input);
+  }
+
   let dataPacket =
   {
     display: ["some", "things", "to display"],
@@ -20,7 +25,7 @@ function App() {
   return (
 
     <div className="App">
-    <ReviewDisplayComponent dataPacket={dataPacket} />
+    <ReviewDisplayComponent dataPacket={dataPacket} callback={cb} />
     </div>
   );
 }
