@@ -22,8 +22,27 @@ class ReviewDisplayComponent extends React.Component
       displayData: props.dataPacket,
       input: ""
     };
+    this.callBackApproveAndContinue = props.approveFunc;
+    this.callBackUndoAndContinue = props.undoFunc;
     this.callback = props.callback;
     console.log(this.state.displayData);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  onKeyDown(event)
+  {
+    if(this.state.displayMode!="neutral")
+    {
+      if(event.charCode===13)
+      {
+        this.callBackApproveAndContinue();
+      }
+      else if(event.charCode===8)
+      {
+        console.log("backspace?");
+        this.callBackUndoAndContinue();
+      }
+    }
   }
 
   render()
@@ -43,21 +62,22 @@ class ReviewDisplayComponent extends React.Component
         hidden.push(<Row>{this.state.displayData.hidden.examples[i]}</Row>)
       }
     }
-    return(<div>
+    return(<div tabIndex="-1" onKeyDown={this.onKeyDown}>
       <Container>
           <Row>{display}</Row>
       </Container>
       <Container>
           <Row>
-                  <Form inline>
+                  <form onSubmit={e => {e.preventDefault();this.callback(this.state.input);this.setState({input: this.state.displayData.hidden.answer})}}>
                   <FormControl
                     type="text"
                     placeholder="Username"
                     className="mr-sm-2"
-                    value={this.state.usr}
-                    onChange={e => this.setState({ input: e.target.value })}
-                    onSubmit={e => {e.preventDefault(); this.callback(this.state.input)}}/>
-                  </Form>
+                    value={this.state.input}
+                    onKeyPress={this.onKey}
+                    onKeyPress={this.onKeyDown}
+                    onChange={e => this.setState({ input: e.target.value })}/>
+                  </form>
           </Row>
 
       </Container>
