@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 class NavBarComponent extends React.Component
@@ -21,18 +22,31 @@ class NavBarComponent extends React.Component
       lessonCount: this.getLessonCount(),
       usr: "",
       psw: "",
+      loading: false,
+      data: null
     };
-    this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogin = this.handleLogin.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+    this.sleep = this.sleep.bind(this);
+    this.getLessonCount = this.getLessonCount.bind(this);
   }
 
   getLessonCount()
   {
+    /*if(this.state.data==null)
+    {
+      return null;
+    }
+    else
+    {
+      return this.state.data.length;
+    }*/
     return 1;
   }
 
   getReviewCount()
   {
-    return 5;
+    return null;
   }
 
   handleLogin()
@@ -41,8 +55,41 @@ class NavBarComponent extends React.Component
     this.setState({psw:"",usr:""});
     console.log(out);
   }
+
+  sleep(ms)
+  {
+    console.log("sleeping for" + ms + "ms");
+    setTimeout(() => {
+      this.setState({ loading: false });
+    }, ms);
+  }
+
+  onClickHandler()
+  {
+    this.setState({loading:true});
+    console.log(this.state.loading);
+    this.sleep(2000);
+    /*fetch('http://localhost:42069/items')
+      .then(response => response.json())
+      .then(data => this.setState({ data:data }))
+      .then(console.log(this.state.data));*/
+  }
+
+
   render()
   {
+    console.log("render");
+    let element;
+    if(!this.state.loading)
+    {
+      console.log("hippi");
+      element = <Nav.Link href = "#" onClick={this.onClickHandler}>get Data</Nav.Link>
+    }
+    else
+    {
+      console.log("hoppi");
+      element=<Spinner animation="border" />
+    }
     return(
       <Navbar bg="light" expand="lg">
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -50,12 +97,13 @@ class NavBarComponent extends React.Component
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
         <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href = "Lessons">
+        <Nav.Link href = "#Lessons">
           Lessons <Badge pill variant="primary">{this.state.lessonCount}</Badge>
         </Nav.Link>
-        <Nav.Link href = "Reviews">
+        <Nav.Link href = "#Reviews">
           Reviews <Badge pill variant="primary">{this.state.reviewCount}</Badge>
         </Nav.Link>
+        {element}
       </Nav>
       <Form inline>
       <FormControl

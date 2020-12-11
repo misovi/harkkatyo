@@ -1,0 +1,20 @@
+item_id,source,destination,type,description,item_lvl,examples,examples_translated
+aaaaaaaa,"pojke, pojken, pojkar, pojkarna",a boy,noun,lorem ipsum,1,lorem ipsum,lorem ipsum
+aaaaaaab,"tycka, tycker, tyckte, tyckt",to think (opinion),verb,lorem ipsum,1,lorem ipsum,lorem ipsum
+aaaaaaac,"gör, göra, gjorde",to do,verb,lorem ipsum,1,lorem ipsum,lorem ipsum
+aaaaaaad,"arg, arga, argt",to be angry,adjective,lorem ipsum,2,lorem ipsum,lorem ipsum
+aaaaaaae,"sa, sagt, säg, säga",to say,verb,lorem ipsum,2,lorem ipsum,lorem ipsum
+aaaaaaaf,"frukta, fruktan, fruktansvärt",terrified,adjective,lorem ipsum,2,lorem ipsum,lorem ipsum
+aaaaaaag,"flicka, flickan flickor, flickorna",a girl,noun,lorem ipsum,3,lorem ipsum,lorem ipsum
+aaaaaaah,"lugn, lungt, lugna, lugnande",calm,adjective,lorem ipsum,3,lorem ipsum,lorem ipsum
+aaaaaaai,"rädd, rädda",scared,adjective,lorem ipsum,3,lorem ipsum,lorem ipsum
+aaaaaaaj,"potatis, potatisen, potatisar potatisarna",a potato,noun,lorem ipsum,4,lorem ipsum,lorem ipsum
+aaaaaaak,"tänka, tänker, tänkte, tänkt",to think (think),verb,lorem ipsum,4,lorem ipsum,lorem ipsum
+aaaaaaal,""å, ån, åer, åerna",a river,noun,lorem ipsum,4,lorem ipsum,lorem ipsum
+aaaaaaam,"ett hus, huset, hus, husen",a house,noun,lorem ipsum,5,lorem ipsum,lorem ipsum
+aaaaaaan,"ö, ön, öar, öarna",a island,noun,lorem ipsum,5,lorem ipsum,lorem ipsum
+aaaaaaao,"hydda, hyddan, hyddor, hyddorna",a hut,noun,lorem ipsum,5,lorem ipsum,lorem ipsum
+aaaaaaap,"skylla, skyllde, skyllt",to blame,verb,lorem ipsum,6,lorem ipsum,lorem ipsum
+aaaaaaaq,"glad, glada, glatt,happy",adjective,lorem ipsum,6,lorem ipsum,lorem ipsum
+aaaaaaar,"räddas, räddades,rescued",adjective,lorem ipsum,6,lorem ipsum,lorem ipsum
+aaaaaaas,"lat, lata, latat, latade",lazy,adjective,lorem ipsum,7,lorem ipsum,lorem ipsum

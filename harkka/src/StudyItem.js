@@ -1,7 +1,8 @@
 class StudyItem
 {
-  constructor(sourceValues, destinationValues, lvl, classification, requiredCorrAns)
+  constructor(id, sourceValues, destinationValues, lvl, classification, requiredCorrAns)
   {
+    this.id= id;
     this.source = sourceValues;
     this.destination = destinationValues;
     this.examples = examples

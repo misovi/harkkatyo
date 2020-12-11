@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import ReviewDisplayComponent from './ReviewDisplayComponent.js';
 import NavBarComponent from './NavBarComponent.js'
+import FileUploaderComponent from './FileUploaderComponent.js'
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
   return (
 
     <div className="App">
-    <ReviewDisplayComponent dataPacket={dataPacket} callback={cb} approveFunc={approve} undoFunc={undo} />
+    <NavBarComponent />
+    <FileUploaderComponent />
     </div>
   );
 }

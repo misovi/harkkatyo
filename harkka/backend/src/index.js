@@ -1,15 +1,20 @@
 import 'babel-polyfill';
 import Koa from 'koa';
 import Router from 'koa-router';
+import KoaBody from 'koa-bodyparser';
+import Url from 'url';
+
 
 // The port that this server will run on, defaults to 9000
 const port = process.env.PORT || 9000;
 
 // Instantiate a Koa server
 const app = new Koa();
+const koaBody = new koaBody()
 
-// Instantiate routers
+// Instantiate routers 
 const test = new Router();
+const todos = new Router();
 
 // Define API path
 const apiPath = '/api/v1';
@@ -20,7 +25,7 @@ test.get(`${apiPath}/test`, async (ctx) => {
 
   // Put a static greeting message to the HTTP response body that will be sent to the browser
   // when a client navigates to http://hostname/api/v1/test
-  ctx.body = { greeting: 'Hello world!' };
+  ctx.body = { greeting: 'Hello world and other thi' };
 });
 
 app.use(test.routes());
@@ -30,4 +35,3 @@ app.use(test.allowedMethods());
 app.listen(port);
 
 console.log(`App listening on port ${port}`);
-

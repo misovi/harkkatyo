@@ -1,0 +1,192 @@
+{"items":[
+  {
+    "item_id": "aaaaaaaa",
+    "source": "pojke, pojken, pojkar, pojkarna",
+    "destination": "a boy",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 1,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaab",
+    "source": "tycka, tycker, tyckte, tyckt",
+    "destination": "to think (opinion)",
+    "type": "verb",
+    "description": "lorem ipsum",
+    "item_lvl": 1,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaac",
+    "source": "gör, göra, gjorde",
+    "destination": "to do",
+    "type": "verb",
+    "description": "lorem ipsum",
+    "item_lvl": 1,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaad",
+    "source": "arg, arga, argt",
+    "destination": "to be angry",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 2,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaae",
+    "source": "sa, sagt, säg, säga",
+    "destination": "to say",
+    "type": "verb",
+    "description": "lorem ipsum",
+    "item_lvl": 2,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaaf",
+    "source": "frukta, fruktan, fruktansvärt",
+    "destination": "terrified",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 2,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaag",
+    "source": "flicka, flickan flickor, flickorna",
+    "destination": "a girl",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 3,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaah",
+    "source": "lugn, lungt, lugna, lugnande,",
+    "destination": "calm",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 3,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaai",
+    "source": "rädd, rädda",
+    "destination": "scared",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 3,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaaj",
+    "source": "potatis, potatisen, potatisar potatisarna",
+    "destination": "a potato",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 4,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaak",
+    "source": "tänka, tänker, tänkte, tänkt",
+    "destination": "to think (think)",
+    "type": "verb",
+    "description": "lorem ipsum",
+    "item_lvl": 4,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaal",
+    "source": "å, ån, åer, åerna",
+    "destination": "a river",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 4,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaam",
+    "source": "ett hus, huset, hus, husen",
+    "destination": "a house",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 5,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaan",
+    "source": "ö, ön, öar, öarna",
+    "destination": "a island",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 5,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaao",
+    "source": "hydda, hyddan, hyddor, hyddorna",
+    "destination": "a hut",
+    "type": "noun",
+    "description": "lorem ipsum",
+    "item_lvl": 5,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaap",
+    "source": "skylla, skyllde, skyllt",
+    "destination": "to blame",
+    "type": "verb",
+    "description": "lorem ipsum",
+    "item_lvl": 6,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaaq",
+    "source": "glad, glada, glatt",
+    "destination": "happy",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 6,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaar",
+    "source": "räddas, räddades",
+    "destination": "rescued",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 6,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  },
+  {
+    "item_id": "aaaaaaas",
+    "source": "lat, lata, latat, latade",
+    "destination": "lazy",
+    "type": "adjective",
+    "description": "lorem ipsum",
+    "item_lvl": 7,
+    "examples": "lorem ipsum",
+    "examples_translated": "lorem ipsum"
+  }
+]}
