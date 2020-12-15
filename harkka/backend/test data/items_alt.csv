@@ -1,5 +1,5 @@
 item_id,source,destination,type,description,item_lvl,examples,examples_translated
-aaaaaaaa,"pojke, pojken, pojkar, pojkarna",a boy,noun,lorem ipsum,1,lorem ipsum,lorem ipsum
+"aaaaaaaa","pojke, pojken, pojkar, pojkarna","a boy","noun","lorem ipsum","1","lorem ipsum","lorem ipsum"
 aaaaaaab,"tycka, tycker, tyckte, tyckt",to think (opinion),verb,lorem ipsum,1,lorem ipsum,lorem ipsum
 aaaaaaac,"gör, göra, gjorde",to do,verb,lorem ipsum,1,lorem ipsum,lorem ipsum
 aaaaaaad,"arg, arga, argt",to be angry,adjective,lorem ipsum,2,lorem ipsum,lorem ipsum

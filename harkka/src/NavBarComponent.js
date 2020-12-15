@@ -18,8 +18,8 @@ class NavBarComponent extends React.Component
   {
     super()
     this.state = {
-      reviewCount: this.getReviewCount(),
-      lessonCount: this.getLessonCount(),
+      reviewCount: null,
+      lessonCount: null,
       usr: "",
       psw: "",
       loading: false,
@@ -33,20 +33,26 @@ class NavBarComponent extends React.Component
 
   getLessonCount()
   {
-    /*if(this.state.data==null)
+    if(this.state.data==null)
     {
       return null;
     }
     else
     {
-      return this.state.data.length;
-    }*/
-    return 1;
+      return this.state.lessonCount;
+    }
   }
 
   getReviewCount()
   {
-    return null;
+    if(this.state.data==null)
+    {
+      return null;
+    }
+    else
+    {
+      return this.state.reviewCount;
+    }
   }
 
   handleLogin()
@@ -66,13 +72,21 @@ class NavBarComponent extends React.Component
 
   onClickHandler()
   {
+    console.log("click");
     this.setState({loading:true});
-    console.log(this.state.loading);
-    this.sleep(2000);
-    /*fetch('http://localhost:42069/items')
+    fetch('http://localhost:9000/api/v1/lang/test/')
       .then(response => response.json())
-      .then(data => this.setState({ data:data }))
-      .then(console.log(this.state.data));*/
+      .then(data => this.handleData(data));
+  }
+
+  handleData(data)
+  {
+    let count = this.state.data.length
+    this.setState({
+      reviewCount: count,
+      lessonCount: count,
+      loading: false
+    });
   }
 
 
