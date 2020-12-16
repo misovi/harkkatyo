@@ -10,6 +10,13 @@ import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import Badge from 'react-bootstrap/Badge'
 import Spinner from 'react-bootstrap/Spinner'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import ReviewManager from './ReviewManager.js';
 
 
 class NavBarComponent extends React.Component
@@ -81,12 +88,14 @@ class NavBarComponent extends React.Component
 
   handleData(data)
   {
-    let count = this.state.data.length
+    let count = data.length
     this.setState({
+      data: data,
       reviewCount: count,
       lessonCount: count,
       loading: false
     });
+    console.log(this.state.data);
   }
 
 
@@ -105,7 +114,7 @@ class NavBarComponent extends React.Component
       element=<Spinner animation="border" />
     }
     return(
-      <Navbar bg="light" expand="lg">
+      <Router><Navbar bg="light" expand="lg">
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -114,9 +123,9 @@ class NavBarComponent extends React.Component
         <Nav.Link href = "#Lessons">
           Lessons <Badge pill variant="primary">{this.state.lessonCount}</Badge>
         </Nav.Link>
-        <Nav.Link href = "#Reviews">
+        <Link to="/reviews"><Nav.Link href = "#Reviews">
           Reviews <Badge pill variant="primary">{this.state.reviewCount}</Badge>
-        </Nav.Link>
+        </Nav.Link></Link>
         {element}
       </Nav>
       <Form inline>
@@ -138,6 +147,11 @@ class NavBarComponent extends React.Component
       </Form>
     </Navbar.Collapse>
   </Navbar>
+  <Switch>
+  <Route path="/reviews">
+    <ReviewManager dataArray={this.state.data} />
+  </Route>
+  </Switch></Router>
     );
   }
 }

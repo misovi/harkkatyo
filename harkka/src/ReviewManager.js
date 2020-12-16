@@ -1,38 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'StudyItem.js';
+import StudyItem from './StudyItem.js';
 
-class ReviewManager extends React.component
+class ReviewManager extends React.Component
 {
-  constructor(reviewQueue)
+  constructor(props)
   {
-    super();
-    this.rq = reviewQueue;
+    super(props);
+    let dataArray = props.dataArray;
+    function cleanAndTrim(str)
+    {
+      let retArr = str.split(',');
+      for(let i=0;i<retArr.length;i++)
+      {
+        retArr[i] = retArr[i].trim();
+      }
+      return retArr;
+    }
+    this.rq = [];
+    for(let i=0; i<dataArray.length;i++)
+    {
+      let item = dataArray[i];
+      let id = item['id'];
+      let sourceValues = cleanAndTrim(item['source']);
+      let destinationValues = cleanAndTrim(item['destination']);
+      let lvl = item['item_lvl'];
+      let classification = item['type'];
+      let examples =  cleanAndTrim(item['examples']);
+      let anecdote = item['anecdote'];
+      this.rq.push(new StudyItem(id, sourceValues, destinationValues, lvl, examples, anecdote, classification,2));
+    }
     this.state =
     {
       dataPacket:
       {
-        display: None,
+        display: null,
         hidden:
         {
-          answer: None,
-          anecdote: None,
-          examples: None
+          answer: null,
+          anecdote: null,
+          examples: null
         },
-        displayMode: None
+        displayMode: null
       }
     };
-    this.currentItem = None;
-    this.answerMode = None;
+    this.currentItem = null;
+    this.answerMode = null;
     this.userInput = "";
   }
 
   childCallBack(input)
   {
     let answers = input
-    for(answer in answers)
+    for(let i=0;i<answers.length;i++)
     {
-      answer = answer.trim();
+      answers[i] = answers[i].trim();
     }
     this.currentItem.checkAnswer(answers, this.answerMode);
   }
@@ -40,8 +62,8 @@ class ReviewManager extends React.component
   drawItem()
   {
     let randomIndex = Math.floor(Math.random() * this.rq.length);
-    this.currentItem = rq[randomIndex];
-    let this.answerMode = -1
+    this.currentItem = this.rq[randomIndex];
+    this.answerMode = -1
     let fullData = this.currentItemItem.printableData();
     let anecdote = fullData.anecdote;
     let examples = fullData.examples;
@@ -55,19 +77,19 @@ class ReviewManager extends React.component
     if(this.answerMode==0)
     {
       display=fullData.destination;
-      answer = fullData.source;
+      answers = fullData.source;
     }
     else
     {
-      answer=fullData.destination;
+      answers=fullData.destination;
       display = fullData.source;
     }
     this.setState(
       {
-        dataPacket.display: display,
-        dataPacket.hidden.answer: answer,
-        dataPacket.hidden.anecdote: anecdote,
-        dataPacket.hidden.examples: examples
+        display: display,
+        answer: answers,
+        anecdote: anecdote,
+        examples: examples
       }
     );
   }
@@ -75,16 +97,18 @@ class ReviewManager extends React.component
   handleInput()
   {
     let answers = this.userInput.split(",");
-    for(answer in answers)
+    for(let i=0;i<answers.length;i++)
     {
-      answer = answer.trim();
+      answers[i] = answers[i].trim();
     }
     this.currentItem.checkAnswer(answers, this.answerMode);
   }
 
   render()
   {
-    <reviewDisplayComponent dataPacket=this.dataPacket/>
+    return(<reviewDisplayComponent dataPacket={this.dataPacket}/>);
 
   }
 }
+
+export default ReviewManager;

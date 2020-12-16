@@ -1,12 +1,12 @@
 class StudyItem
 {
-  constructor(id, sourceValues, destinationValues, lvl, classification, requiredCorrAns)
+  constructor(id, sourceValues, destinationValues, lvl, examples, anecdote, classification, requiredCorrAns)
   {
     this.id= id;
     this.source = sourceValues;
     this.destination = destinationValues;
     this.examples = examples
-    this.anecdote ) anecdote
+    this.anecdote = anecdote
     this.correct = 0;
     this.level = lvl;
     this.classification = classification;
@@ -26,11 +26,6 @@ class StudyItem
     this.preparedQueryMode = -1
   }
 
-  get queryMode()
-  {
-    return this.queryMode;
-  }
-
   printableData()
   {
     let dataPacket =
@@ -48,7 +43,7 @@ class StudyItem
   In case of grammar points answerMode is always 0*/
   checkAnswer(answers, answerMode)
   {
-    challengeArray = [];
+    let challengeArray = [];
     if(answerMode===0)
     {
       challengeArray = this.sourceValues;
@@ -57,12 +52,12 @@ class StudyItem
     else
     {
       challengeArray = this.destinationValues;
-      preparedQueryMode = 0;
+      this.preparedQueryMode = 0;
     }
 
-    for(correctAnswer in challengeArray)
+    for(let i = 0; i<challengeArray;i++)
     {
-      if(answers.includes(correctAnswer) == false)
+      if(answers.includes(challengeArray[i]) == false)
       {
         this.preparedOperationCode = 1;
         return false;
@@ -87,7 +82,7 @@ class StudyItem
     {
       //if user inputted right answers and accepted it
       this.correct = this.correct + 1
-      if this.correct == this.requiredCorrAns
+      if(this.correct == this.requiredCorrAns)
       {
         this.level = this.level+1;
         returnVals.popMe = true;
@@ -107,8 +102,6 @@ class StudyItem
       }
     }
   }
-
-
-
-
 }
+
+export default StudyItem;
